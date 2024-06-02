@@ -21,21 +21,6 @@ plot_normality(churn)
 ![Normality](images/Normality.png)
 
 ```r
-# Select only numeric columns for correlation calculation
-numeric_columns <- churn %>% select(where(is.numeric))
-
-# Calculation of correlation coefficient using cor()
-correlation_matrix <- cor(numeric_columns, use = "complete.obs", method = "pearson")
-
-# Print the correlation matrix
-print(correlation_matrix)
-
-# Visualize the correlation matrix using corrplot
-corrplot::corrplot(correlation_matrix, method = "circle")
-```
-![Plolt](images/Plot.png)
-
-```r
 # Perform EDA based on target variables
 # Grouping data by Internet Service
 categ <- target_by(churn, Internet.Service)
@@ -44,11 +29,14 @@ categ <- target_by(churn, Internet.Service)
 cat_num <- relate(categ, Tenure)
 summary(cat_num)
 plot(cat_num)
+```
+![Internet](images/Internet.png)
 
+```r
 # Adjust the plotting area
 par(mar = c(5, 4, 4, 2) + 0.1)
 
 # Create a mosaic plot
 mosaic(~ Internet.Service + Gender, data = churn)
 ```
-![Mosaic](images/Mosaic.png)
+![mosaic](images/mosaic.png)

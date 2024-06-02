@@ -39,4 +39,4 @@ par(mar = c(5, 4, 4, 2) + 0.1)
 # Create a mosaic plot
 mosaic(~ Internet.Service + Gender, data = churn)
 ```
-![mosaic](images/mosaic.png)
+![mosaic](images/Mosaic.png)
